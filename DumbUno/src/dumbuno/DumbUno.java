@@ -1,5 +1,6 @@
 //This is an Uno game simulation.
 //Created by James Vanderhyde, 30 September 2024
+//Modified by Anthony Howard
 
 package dumbuno;
 
@@ -31,7 +32,7 @@ public class DumbUno
         current = startPlayer;
         while (current.getNext() != startPlayer)
         {
-            current.setData(rng.nextInt(minHandSize, maxHandSize+1));
+            current.setData(rng.nextInt( maxHandSize - minHandSize + 1) + minHandSize);
             current = current.getNext();
         }
         
