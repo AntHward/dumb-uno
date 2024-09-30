@@ -30,11 +30,13 @@ public class DumbUno
         
         //Deal every player a hand
         current = startPlayer;
-        while (current.getNext() != startPlayer)
+        while (current.getData() == 0)
         {
+            
             current.setData(rng.nextInt( maxHandSize - minHandSize + 1) + minHandSize);
             current = current.getNext();
         }
+        
         
         printGame(startPlayer);
         
@@ -43,6 +45,10 @@ public class DumbUno
         while (current.getData() > 1)
         {
             //Student implementation
+            System.out.println(current.getData());
+            current = current.getNext();
+                    current.setData(current.getData()-1);
+            
         }
         System.out.println("I win!");
         
@@ -51,6 +57,12 @@ public class DumbUno
     private static void printGame(IntNode startPlayer)
     {
         //Student implementation
+        int players = 0;
+        while (players < 5){
+            players++;
+                startPlayer=startPlayer.getNext();
+                System.out.println(startPlayer.getData());
+                }
     }
     
 }
